@@ -1,7 +1,7 @@
 import random
 
 def get_valid_number():
-    """Keep asking till the dumbass user gives us an integer"""
+    """Keep asking till the user gives us an integer"""
     while True:
         guess = input("Enter your guess --> ")
         try:
