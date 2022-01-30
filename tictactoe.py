@@ -1,8 +1,20 @@
-print()
+board = [
+    [".", ".", "."],
+    [".", ".", "."],
+    [".", ".", "."]
+]
 
-row = [1, 2, 3]
-column = [1, 2, 3]
+def print_board():
+    for row in board:
+        print(" | ".join(row))
 
-## X | X | X
-## X | X | X
-## X | X | X
+print_board()
+
+print("Welcome to tic tac toe.")
+move = input("Enter your move --> ")
+row,col = move.split(",")
+row=int(row)
+col=int(col)
+board[row][col] = "X"
+
+print_board()
