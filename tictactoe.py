@@ -1,3 +1,6 @@
+import random
+
+
 board = [
     [".", ".", "."],
     [".", ".", "."],
@@ -7,6 +10,7 @@ board = [
 def print_board():
     for row in board:
         print(" | ".join(row))
+    print("\n")
 
 def get_player_move():
     move = input("Enter your move --> ")
@@ -14,6 +18,11 @@ def get_player_move():
     row=int(row)
     col=int(col)
     board[row][col] = "X"
+
+def computer_move():
+    row=random.randint(0,2)
+    col=random.randint(0,2)
+    board[row][col] = "O"
 
 def player_won() -> bool:
     # Horizontal winning combos:
@@ -40,6 +49,8 @@ print("Welcome to tic tac toe.")
 
 while True:
     get_player_move()
+    print_board()
+    computer_move()
     print_board()
     if player_won():
         print("You won!")
