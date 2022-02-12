@@ -15,16 +15,24 @@ def get_player_move():
     col=int(col)
     board[row][col] = "X"
 
-
 def player_won() -> bool:
+    # Horizontal winning combos:
     winning_row = ["X", "X", "X"]
-    if board[0] == winning_row:
+    for row in board:
+        if row == winning_row:
+            return True
+    
+    # Vertical winning combos:
+    for col in range(3):
+        if board[0][col] == "X" and board[1][col] == "X" and board[2][col] == "X":
+            return True
+    
+    # Diagonal winning combos:
+    if board[0][0] == "X" and board[1][1] == "X" and board[2][2] == "X":
         return True
-    if board[1] == winning_row:
+    if board[0][2] == "X" and board[1][1] == "X" and board[2][0] == "X":
         return True
-    if board[2] == winning_row:
-        return True
-        
+
     return False
     
 
