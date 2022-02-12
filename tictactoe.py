@@ -49,6 +49,12 @@ def someone_won(letter) -> bool:
         return True
     return False
     
+def tie_game():
+    for row in range(3):
+        for col in range(3):
+            if board[row][col] == ".":
+                return False
+    return True
 
 print("Welcome to tic tac toe.")
 
@@ -58,8 +64,14 @@ while True:
     if someone_won("X"):
         print("You won!")
         break
+    if tie_game():
+        print("It's a Draw!")
+        break
     computer_move()
     print_board()
     if someone_won("O"):
         print("The computer won. You lose.")
+        break
+    if tie_game():
+        print("It's a Draw!")
         break
