@@ -22,6 +22,9 @@ def get_player_move():
 def computer_move():
     row=random.randint(0,2)
     col=random.randint(0,2)
+    while board[row][col] == "O" or board[row][col] == "X":
+        row=random.randint(0,2)
+        col=random.randint(0,2)
     board[row][col] = "O"
 
 def player_won() -> bool:
@@ -50,8 +53,8 @@ print("Welcome to tic tac toe.")
 while True:
     get_player_move()
     print_board()
-    computer_move()
-    print_board()
     if player_won():
         print("You won!")
         break
+    computer_move()
+    print_board()
